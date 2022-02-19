@@ -54,8 +54,11 @@ function getAllTasksForAParticularUser(userid, token) {
     team_id: null
 }
 */
-function postTask(taskData) {
-    fetch('https://tcss445-plan-it.herokuapp.com/posttasks/', {
+function postTask(taskData, token) {
+    let headers = new Headers();
+    headers.set('authorization', token);
+    headers.set('Content-Type','application/json');
+    fetch('http://localhost:5000/posttasks/', {
         mode: 'cors',
         method: 'POST',
         body: JSON.stringify(taskData),
@@ -121,7 +124,7 @@ function signIn(email, password) {
 
 
 
-// signIn("email1@email.com", "thePassword");
+signIn("email1@email.com", "thePassword");
 
 
 
@@ -129,7 +132,7 @@ function signIn(email, password) {
 
 
 
-getAllTasksForAParticularUser(1, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtYWlsMUBlbWFpbC5jb20iLCJ1c2VyaWQiOjE5LCJ1c2VybmFtZSI6InRoZVVuYW1lMSIsImlhdCI6MTY0NTI5Mjc2NCwiZXhwIjoxNjQ2NTAyMzY0fQ.xpWp9NZ9X6aYAZ9RNfR9z-mZqwGfY5Tx-vCK5Pq4DP0");
+// getAllTasksForAParticularUser(1, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtYWlsMUBlbWFpbC5jb20iLCJ1c2VyaWQiOjE5LCJ1c2VybmFtZSI6InRoZVVuYW1lMSIsImlhdCI6MTY0NTI5Mjc2NCwiZXhwIjoxNjQ2NTAyMzY0fQ.xpWp9NZ9X6aYAZ9RNfR9z-mZqwGfY5Tx-vCK5Pq4DP0");
 
 
 // register({ 
@@ -137,13 +140,13 @@ getAllTasksForAParticularUser(1, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpb
 //     email: "email1@email.com",
 //     password: "thePassword"
 // });
-
-// postTask({
-//     task_name: "Quiz 10",
-//     description: "Quiz 10 (individual)",
+// let task = {
+//     task_name: "Quiz 2",
+//     description: "Quiz 2 (individual)",
 //     priority: 2,
 //     category: 1,
 //     complete: true,
 //     user_id: 1,
 //     team_id: null
-// });
+// };
+// postTask(task, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtYWlsMUBlbWFpbC5jb20iLCJ1c2VyaWQiOjE5LCJ1c2VybmFtZSI6InRoZVVuYW1lMSIsImlhdCI6MTY0NTI5Mjc2NCwiZXhwIjoxNjQ2NTAyMzY0fQ.xpWp9NZ9X6aYAZ9RNfR9z-mZqwGfY5Tx-vCK5Pq4DP0");
