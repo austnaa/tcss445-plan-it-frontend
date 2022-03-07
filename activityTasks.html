@@ -22,9 +22,7 @@
   <title>Plan-it!</title>
 
   <script src="index.js"></script>
-  <!-- REMOVE THIS LINE BELOW TO STOP TABLE FROM POPPING UP -->
-  <script>getAllActivitiesForAParticularUser(1);</script>
-  
+  <script>getAllActivityTasksForAParticularUser(1);</script>
 </head>
 
 <body id="body">
@@ -59,23 +57,22 @@
   
     <!-- BEGIN BODY -->
     <div style="width:auto; padding-top: 100px; padding-left: 200px; align-content: center; margin:0 auto;">
-    <h1 style="font-size: 55px; line-height:2.6em; color: #296B8E; font-weight:bold;">Activities</h1>
-    <h3>Get a list of your activities!</h3>
-    <div></div><label for="activities">Filter Activites By:</label>
-    <select name="activities" id="activities">
+    <h1 style="font-size: 55px; line-height:2.6em; color: #296B8E; font-weight:bold;">Activity Tasks</h1>
+    <h3>Get a list of your activies and the tasks assigned to them!</h3>
+    <div></div><label for="archives">Filter Archives By:</label>
+    <select name="archives" id="archives">
         <option value="q1">Query 1</option>
         <option value="q2">Query 2</option>
         <option value="q3">Query 3</option>
         <option value="q4">Query 4</option>
     </select>
-    <!-- DIV FOR ACTIVITY TABLE -->
-    <div id="activityTable" style="padding-bottom: 100px;">
+    <!-- DIV FOR ACTIVITY TASK TABLE -->
+    <div id="activityTaskTable" style="padding-bottom: 100px;">
 
     </div>
   </div>
     <!-- END BODY -->
      
-  
 
 </body>
 </html>

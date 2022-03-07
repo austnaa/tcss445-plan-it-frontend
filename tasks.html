@@ -23,8 +23,8 @@
 
   <script src="index.js"></script>
 
-    <!-- REMOVE THIS LINE BELOW TO STOP TABLE FROM POPPING UP -->
-    <script>getAllTasksForAParticularUser(1);</script>
+  <!-- REMOVE THIS LINE BELOW TO STOP TABLE FROM POPPING UP --> 
+  <script>getAllTasksForAParticularUser(1);</script>
   
 </head>
 
@@ -32,32 +32,36 @@
   
     <p id="b1"></p>
     <nav class="navbar navbar-expand-lg">
-      <div class="container">
-          <a class="navbar-brand" href="index.html">
-            <img class="logo" src="logo.png"> </a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                      <a href="./tasks.html" class="nav-link smoothScroll">Tasks</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="./activities.html" class="nav-link smoothScroll">Activities</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="./archives.html" class="nav-link">Archives</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="./upcoming.html" class="nav-link contact">Due Soon</a>
-                  </li>
-              </ul>
-          </div>
-      </div>
-  </nav>
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+              <img class="logo" src="logo.png"> </a>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="./tasks.html" class="nav-link smoothScroll">Tasks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./activities.html" class="nav-link smoothScroll">Activities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./activitySchedule.html" class="nav-link">Activity Schedule</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="./activityTasks.html" class="nav-link">Activity Tasks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./upcoming.html" class="nav-link contact">Due Soon</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <!-- END NAVBAR -->
   
     <!-- BEGIN BODY -->
     <div style="width:auto; padding-top: 100px; padding-left: 200px; align-content: center; margin:0 auto;">
     <h1 style="font-size: 55px; line-height:2.6em; color: #296B8E; font-weight:bold;">Tasks</h1>
+    <h3>Get a list of your incomplete tasks!</h3>
     <div></div><label for="tasks">Filter Tasks By:</label>
     <select name="tasks" id="tasks">
         <option value="q1">Query 1</option>
