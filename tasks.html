@@ -22,9 +22,6 @@
   <title>Plan-it!</title>
 
   <script src="index.js"></script>
-
-  <!-- REMOVE THIS LINE BELOW TO STOP TABLE FROM POPPING UP --> 
-  <script>getAllTasksForAParticularUser(1);</script>
   
 </head>
 
@@ -62,13 +59,13 @@
     <div style="width:auto; padding-top: 100px; padding-left: 200px; align-content: center; margin:0 auto;">
     <h1 style="font-size: 55px; line-height:2.6em; color: #296B8E; font-weight:bold;">Tasks</h1>
     <h3>Get a list of your incomplete tasks!</h3>
-    <div></div><label for="tasks">Filter Tasks By:</label>
-    <select name="tasks" id="tasks">
-        <option value="q1">Query 1</option>
-        <option value="q2">Query 2</option>
-        <option value="q3">Query 3</option>
-        <option value="q4">Query 4</option>
+    <div></div><label for="tasks">Choose User:</label>
+    <select name="tasks" id="tasksDropdown" 
+        onchange="getAllTasksForAParticularUser(document.getElementById('tasksDropdown').options[document.getElementById('tasksDropdown').selectedIndex].value);">
     </select>
+    <script>
+        populateDropdown('tasksDropdown');
+    </script>
     
     <!-- DIV FOR TASKS TABLE -->
     <div id="taskTable" style="padding-bottom: 100px;">
@@ -77,9 +74,6 @@
   </div>
   
     <!-- END BODY -->
-     
-  
-  
 
 </body>
 </html>
