@@ -1,3 +1,11 @@
+// remove the contents from the element at the given id
+function removeContents(id) {
+    let div = document.getElementById(id);
+    while(div.firstChild){
+        div.removeChild(div.firstChild);
+    }
+}
+
 let headers = new Headers();
 
 headers.append('Content-Type', 'application/json');
@@ -30,6 +38,7 @@ function createTaskTable(taskData) {
     table.appendChild(thead);
     table.appendChild(tbody);
 
+    removeContents('taskTable');
     // Adding the entire table to the body tag
     document.getElementById('taskTable').appendChild(table);
 
@@ -43,7 +52,6 @@ function createTaskTable(taskData) {
     heading_3.innerHTML = "Priority";
     let heading_4 = document.createElement('th');
     heading_4.innerHTML = "Category";
-
 
     row_1.appendChild(heading_1);
     row_1.appendChild(heading_2);
@@ -104,6 +112,7 @@ function createActivityTable(taskData) {
     table.appendChild(thead);
     table.appendChild(tbody);
 
+    removeContents('activityTable');
     // Adding the entire table to the body tag
     document.getElementById('activityTable').appendChild(table);
 
@@ -140,9 +149,6 @@ function createActivityTable(taskData) {
 }
 
 
-
-
-
 // gets all activities scheduled for a particular user
 function getScheduleForAParticularUser(userid) {
     let headers = new Headers();
@@ -169,6 +175,7 @@ function createScheduleTable(taskData) {
     table.appendChild(thead);
     table.appendChild(tbody);
 
+    removeContents('activityScheduleTable');
     // Adding the entire table to the body tag
     document.getElementById('activityScheduleTable').appendChild(table);
 
@@ -237,6 +244,7 @@ function createActivityTaskTable(taskData) {
     table.appendChild(thead);
     table.appendChild(tbody);
 
+    removeContents('activityTaskTable');
     // Adding the entire table to the body tag
     document.getElementById('activityTaskTable').appendChild(table);
 
@@ -278,25 +286,29 @@ function createActivityTaskTable(taskData) {
     });
 }
 
-// getAllTasksForAParticularUser(1);
 
-// getAllActivitiesForAParticularUser(1);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// hits endpoint to populate the dropdown specified with user info
+function populateDropdown(dropdownId) {
+    fetch('https://tcss445-plan-it.herokuapp.com/getusers/', {
+    mode: 'cors',
+    method: 'GET',
+    
+    })
+    .then(response => response.json())
+    .then(data => {
+        
+        let dropdown = document.getElementById(dropdownId);
+        data.rows.forEach(user => {
+            let option = document.createElement("option");
+            option.value = user.user_id;
+            option.text = user.user_name;
+            dropdown.appendChild(option);
+        });
+        
+    }).catch(function(err) {
+        console.log(err);
+    });  
+}
 
 
 

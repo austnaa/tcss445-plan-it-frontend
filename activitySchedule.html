@@ -22,7 +22,6 @@
   <title>Plan-it!</title>
 
   <script src="index.js"></script>
-  <script>getScheduleForAParticularUser(1)</script>
   
 </head>
 
@@ -61,12 +60,19 @@
     <h1 style="font-size: 55px; line-height:2.6em; color: #296B8E; font-weight:bold;">Activity Schedule</h1>
     <h3>Get a schedule of your planned activities!</h3>
     <div></div><label for="archives">Filter Archives By:</label>
-    <select name="archives" id="archives">
-        <option value="q1">Query 1</option>
-        <option value="q2">Query 2</option>
-        <option value="q3">Query 3</option>
-        <option value="q4">Query 4</option>
+
+    <select name="activitySchedule" id="activityScheduleDropdown" 
+        onchange="getScheduleForAParticularUser(document.getElementById('activityScheduleDropdown').options[document.getElementById('activityScheduleDropdown').selectedIndex].value);">
     </select>
+    <script>
+        populateDropdown('activityScheduleDropdown');
+    </script>
+
+
+
+
+
+
     <!-- DIV FOR ACTIVITY SCHEDULE TABLE -->
     <div id="activityScheduleTable" style="padding-bottom: 100px;">
 
