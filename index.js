@@ -1,3 +1,8 @@
+/*
+ * Contains helper functions for making http requests and creating tables for the Plan-It website
+ */
+
+
 // remove the contents from the element at the given id
 function removeContents(id) {
     let div = document.getElementById(id);
@@ -7,7 +12,6 @@ function removeContents(id) {
 }
 
 let headers = new Headers();
-
 headers.append('Content-Type', 'application/json');
 headers.append('Accept', 'application/json');
 
@@ -27,7 +31,7 @@ function getAllTasksForAParticularUser(userid) {
     });
 }
 
-// creates a table based on the task data and 
+// creates a table based on the task data given
 // HELPFUL LINK (TUTORIAL)
 // https://www.delftstack.com/howto/javascript/create-table-javascript/
 function createTaskTable(taskData) {
@@ -87,7 +91,7 @@ function createTaskTable(taskData) {
 
 
 
-// gets all tasks for a particular user
+// gets all activities for a particular user
 function getAllActivitiesForAParticularUser(userid) {
     let headers = new Headers();
     fetch('https://tcss445-plan-it.herokuapp.com/getactivities/' + userid, {
@@ -147,6 +151,12 @@ function createActivityTable(taskData) {
         tbody.appendChild(row_);
     });
 }
+
+
+
+
+
+
 
 
 // gets all activities scheduled for a particular user
@@ -287,6 +297,11 @@ function createActivityTaskTable(taskData) {
 }
 
 
+
+
+
+
+
 // hits endpoint to populate the dropdown specified with user info
 function populateDropdown(dropdownId) {
     fetch('https://tcss445-plan-it.herokuapp.com/getusers/', {
@@ -309,114 +324,3 @@ function populateDropdown(dropdownId) {
         console.log(err);
     });  
 }
-
-
-
-
-
-
-
-// EXAMPLE OF POST FUNCTION WITH PARAMS
-// requires param obj like: 
-/* 
-{
-    task_id: 1,
-    task_name: "Quiz 1",
-    description: "Quiz 1 (individual)",
-    priority: 1,
-    category: 1,
-    complete: false,
-    user_id: 1,
-    team_id: null
-}
-*/
-// function postTask(taskData, token) {
-//     let headers = new Headers();
-//     headers.set('authorization', token);
-//     headers.set('Content-Type','application/json');
-//     fetch('http://localhost:5000/posttasks/', {
-//         mode: 'cors',
-//         method: 'POST',
-//         body: JSON.stringify(taskData),
-//         headers: headers
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         console.log(data);
-//         document.getElementById('b1').innerHTML = JSON.stringify(data);
-//     }).catch(function(err) {
-//         console.log(err);
-//     });
-// }
-
-/* 
- * Attempts to register a new user based on the given username,
- * email, and password.
- * 
- * Expects a body like the following:
- *  {
- *      username: "theUsername",
- *      email: "theEmail",
- *      password: "thePassword"
- *  }
- */
-// function register(body) {
-//     fetch('https://tcss445-plan-it.herokuapp.com/register', {
-//         mode: 'cors',
-//         method: 'POST',
-//         body: JSON.stringify(body),
-//         headers: headers
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         console.log(data);
-//         document.getElementById('b1').innerHTML = JSON.stringify(data);
-//     }).catch(function(err) {
-//         console.log(err);
-//     });
-// }
-
-/* 
- * Attempts to sign in the user based on the given email and password
- */
-// function signIn(email, password) {
-//     let headers = new Headers();
-//     headers.set('Authorization', 'Basic ' + btoa(email + ":" + password));
-    
-//     fetch('https://tcss445-plan-it.herokuapp.com/signin', {
-//         mode: 'cors',
-//         method: 'GET',
-//         headers: headers
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         console.log(data);
-//         document.getElementById('b1').innerHTML = JSON.stringify(data);
-//     }).catch(function(err) {
-//         console.log(err);
-//     });
-// }
-
-
-
-// signIn("email1@email.com", "thePassword");
-
-
-// getAllTasksForAParticularUser(1, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtYWlsMUBlbWFpbC5jb20iLCJ1c2VyaWQiOjE5LCJ1c2VybmFtZSI6InRoZVVuYW1lMSIsImlhdCI6MTY0NTI5Mjc2NCwiZXhwIjoxNjQ2NTAyMzY0fQ.xpWp9NZ9X6aYAZ9RNfR9z-mZqwGfY5Tx-vCK5Pq4DP0");
-
-
-// register({ 
-//     username: "theUname1",
-//     email: "email1@email.com",
-//     password: "thePassword"
-// });
-// let task = {
-//     task_name: "Quiz 2",
-//     description: "Quiz 2 (individual)",
-//     priority: 2,
-//     category: 1,
-//     complete: true,
-//     user_id: 1,
-//     team_id: null
-// };
-// postTask(task, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtYWlsMUBlbWFpbC5jb20iLCJ1c2VyaWQiOjE5LCJ1c2VybmFtZSI6InRoZVVuYW1lMSIsImlhdCI6MTY0NTI5Mjc2NCwiZXhwIjoxNjQ2NTAyMzY0fQ.xpWp9NZ9X6aYAZ9RNfR9z-mZqwGfY5Tx-vCK5Pq4DP0");
